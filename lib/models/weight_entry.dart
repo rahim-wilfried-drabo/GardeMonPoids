@@ -1,4 +1,3 @@
-// lib/models/weight_entry.dart
 class WeightEntry {
   final DateTime date;
   final double weight;

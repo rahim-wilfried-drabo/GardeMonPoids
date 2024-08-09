@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.logout),
             onPressed: () async {
-              await authProvider.logoutUser(); // Logout the user
+              await authProvider.logoutUser();
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text('Bienvenue, ${authProvider.loggedInUser}'), // Display logged-in user's name
+          Text('Bienvenue, ${authProvider.loggedInUser}'),
           Expanded(child: WeightChart(entries: weightProvider.entries)),
           ElevatedButton(
             onPressed: () {

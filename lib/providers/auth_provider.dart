@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import '../database_helper.dart'; // Import database helper
+import '../database_helper.dart';
 
 class AuthProvider extends ChangeNotifier {
   final DatabaseHelper _dbHelper = DatabaseHelper();
@@ -8,7 +8,7 @@ class AuthProvider extends ChangeNotifier {
   Future<void> saveUser(String username, String password) async {
     await _dbHelper.insertUser(username, password);
     _loggedInUser = username;
-    notifyListeners(); // Notify listeners of the change
+    notifyListeners();
   }
 
   Future<Map<String, String?>?> getUser(String username) async {
@@ -23,7 +23,7 @@ class AuthProvider extends ChangeNotifier {
     final user = await getUser(username);
     if (user != null && user['password'] == password) {
       _loggedInUser = username;
-      notifyListeners(); // Notify listeners of the change
+      notifyListeners();
       return true;
     }
     return false;
@@ -31,12 +31,12 @@ class AuthProvider extends ChangeNotifier {
 
   Future<void> logoutUser() async {
     _loggedInUser = null;
-    notifyListeners(); // Notify listeners that the user has logged out
+    notifyListeners();
   }
 
   Future<bool> isUserLoggedIn() async {
     return _loggedInUser != null;
   }
 
-  String? get loggedInUser => _loggedInUser; // Getter for the logged-in user
+  String? get loggedInUser => _loggedInUser;
 }

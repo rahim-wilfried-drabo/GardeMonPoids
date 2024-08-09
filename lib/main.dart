@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => WeightProvider()),
-        ChangeNotifierProvider(create: (context) => AuthProvider()), // Changed to ChangeNotifierProvider
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
       ],
       child: MaterialApp(
         title: 'GardeMonPoids',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: AuthWrapper(), // Added AuthWrapper as the initial screen
+        home: AuthWrapper(),
       ),
     );
   }
@@ -42,9 +42,9 @@ class AuthWrapper extends StatelessWidget {
           return CircularProgressIndicator();
         } else {
           if (snapshot.data == true) {
-            return HomeScreen(); // Go to HomeScreen if the user is logged in
+            return HomeScreen();
           } else {
-            return LoginScreen(); // Go to LoginScreen if the user is not logged in
+            return LoginScreen();
           }
         }
       },
